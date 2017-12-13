@@ -249,6 +249,12 @@ public:
                     info.max_rmsd_beta = 0.0;
                     for (size_t iter = 0; iter < maxiter; iter++) {
 
+                        if (print_level >= 10) {
+                            rspvec_alph.print("rspvec_old_alph");
+                            if (nden == 2)
+                                rspvec_beta.print("rspvec_old_beta");
+                        }
+
                         if (do_compute_generalized_density) {
                             // Compute J and K from D.
                             compute_generalized_density(Dg.slice(0), rspvec_alph, C_occ_alph, C_virt_alph);
@@ -533,6 +539,12 @@ public:
                     info.max_rmsd_alph = 0.0;
                     info.max_rmsd_beta = 0.0;
                     for (size_t iter = 0; iter < maxiter; iter++) {
+
+                        if (print_level >= 10) {
+                            rspvec_alph.print("rspvec_old_alph");
+                            if (nden == 2)
+                                rspvec_beta.print("rspvec_old_beta");
+                        }
 
                         if (do_compute_generalized_density) {
                             // Compute J and K from D.

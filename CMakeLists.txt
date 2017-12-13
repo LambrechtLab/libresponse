@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.5)
 project(LIBRESPONSE CXX)
 
-find_package(Armadillo REQUIRED)
+find_package(Armadillo)
 
 set(SRC
     configurable.C

@@ -378,10 +378,10 @@ void pretty_print(const arma::mat &M, std::string title, bool sci, size_t width,
 
 void pretty_print(const arma::cube &C, std::string title, bool sci, size_t width, size_t numCols)
 {
-    std::string slice_title;
+    std::stringstream slice_title;
     for (size_t s = 0; s < C.n_slices; s++) {
-        slice_title = title + " [slice " + SSTR(s) + "]";
-        pretty_print(C.slice(s), slice_title, sci, width, numCols);
+        slice_title << title << " [slice " << s << "]";
+        pretty_print(C.slice(s), slice_title.str(), sci, width, numCols);
     }
 }
 

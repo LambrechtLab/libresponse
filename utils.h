@@ -25,12 +25,6 @@ static const std::string lcarats(77, '<');
 static const std::string rcarats(77, '>');
 
 /*!
- * Convert an integer to a string.
- */
-#define SSTR( x ) static_cast< std::ostringstream & >(      \
-        ( std::ostringstream() << std::dec << x ) ).str()
-
-/*!
  * Repack an Armadillo matrix of shape \f$(a,i)\f$ into a vector of
  * shape \f$(a*i)\f$, where \f$a\f$ is the fast index.
  *

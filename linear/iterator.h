@@ -351,7 +351,7 @@ public:
                     // If not converged after the maximum number of
                     // iterations, crash.
                     if (!is_converged) {
-                        throw std::runtime_error("not converged after " + SSTR(maxiter) + " iterations");
+                        throw std::runtime_error("not converged after max iterations");
                     }
 
                 }
@@ -725,7 +725,7 @@ public:
                     // If not converged after the maximum number of
                     // iterations, crash.
                     if (!is_converged) {
-                        throw std::runtime_error("not converged after " + SSTR(maxiter) + " iterations");
+                        throw std::runtime_error("not converged after max iterations");
                     }
 
                 }

@@ -4,6 +4,7 @@ project(LIBRESPONSE CXX)
 find_package(Armadillo)
 
 set(SRC
+    citations.C
     configurable.C
     dump_ao_integrals.C
     index_printing.C
@@ -18,7 +19,7 @@ set(SRC
     set_defaults.C
     )
 
-add_library(response ${SRC})
+add_library(response STATIC ${SRC})
 target_link_libraries(response "${ARMADILLO_LIBRARIES}")
 
 if(OPENMP_FOUND)

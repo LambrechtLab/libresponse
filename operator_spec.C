@@ -1,5 +1,7 @@
 #include <cassert>
+#include <ostream>
 #include <stdexcept>
+#include <sstream>
 
 #include "constants.h"
 #include "linear/helpers.h"
@@ -33,6 +35,7 @@ void operator_spec::init_indices(
 
 std::ostream& operator<<(std::ostream &stream, const operator_metadata &om) {
     stream << " operator_label: " << om.operator_label << " origin_label: " << om.origin_label << " slice_idx: " << om.slice_idx << " is_imaginary: " << om.is_imaginary << " is_spin_dependent: " << om.is_spin_dependent;
+    return stream;
 }
 
 void operator_spec::form_rhs(
@@ -296,8 +299,11 @@ std::vector<std::string> make_operator_component_vec(const std::vector<operator_
     std::vector<std::string> labels;
 
     for (size_t i = 0; i < operators.size(); i++)
-        for (size_t s = 0; s < operators[i].integrals_ao.n_slices; s++)
-            labels.push_back(SSTR(s + 1));
+        for (size_t s = 0; s < operators[i].integrals_ao.n_slices; s++) {
+            std::stringstream ss;
+            ss << (s + 1);
+            labels.push_back(ss.str());
+        }
 
     return labels;
 
